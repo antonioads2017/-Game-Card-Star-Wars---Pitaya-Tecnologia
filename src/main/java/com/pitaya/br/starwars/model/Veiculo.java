@@ -1,9 +1,14 @@
 package com.pitaya.br.starwars.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.ManyToMany;
 import java.util.List;
 
+@Entity
 public class Veiculo {
 
+    @GeneratedValue
     private Integer id;
     private String nome;
     private String modelo;
@@ -12,7 +17,11 @@ public class Veiculo {
     private String tamanho;
     private String capacidadeDeCarga;
     private Integer velocidadeMaxima;
+
+    @ManyToMany(mappedBy = "veiculos")
     private List<Personagem> pilotos;
+
+    @ManyToMany(mappedBy = "veiculos")
     private List<Filme> filmes;
 
     public Veiculo() {

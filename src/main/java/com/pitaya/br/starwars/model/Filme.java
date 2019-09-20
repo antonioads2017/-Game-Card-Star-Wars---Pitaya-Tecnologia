@@ -1,22 +1,50 @@
 package com.pitaya.br.starwars.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
+@Entity
 public class Filme {
 
+    @GeneratedValue
     private Integer id;
     private String titulo;
     private Integer episodio;
     private String descricao;
     private String diretor;
     private String producao;
+    @Column(name="dataDeLancamento",columnDefinition = "DATE")
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataDeLancamento;
 
+    @ManyToMany(mappedBy = "filmes")
     private List<Personagem> personagems;
+
+    @ManyToMany
+    @JoinTable(name = "filmePlaneta",
+              joinColumns = @JoinColumn(name = "filme_id"),
+            inverseJoinColumns = @JoinColumn(name = "planeta_id"))
     private List<Planeta> planetas;
+
+    @ManyToMany
+    @JoinTable(name = "filmeNave",
+            joinColumns = @JoinColumn(name = "filme_id"),
+            inverseJoinColumns = @JoinColumn(name = "nave_id"))
     private List<Nave> naves;
+
+    @ManyToMany
+    @JoinTable(name = "filmePlaneta",
+            joinColumns = @JoinColumn(name = "filme_id"),
+            inverseJoinColumns = @JoinColumn(name = "veiculo_id"))
     private List<Veiculo> veiculos;
+
+    @ManyToMany
+    @JoinTable(name = "filmePlaneta",
+            joinColumns = @JoinColumn(name = "filme_id"),
+            inverseJoinColumns = @JoinColumn(name = "especie_id"))
     private List<Especie> especies;
 
     public Filme() {

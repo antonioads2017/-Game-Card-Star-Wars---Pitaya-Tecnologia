@@ -1,16 +1,23 @@
 package com.pitaya.br.starwars.model;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
 public class Especie {
 
+    @GeneratedValue
     private Integer id;
     private String nome;
     private String linguagem;
 
+    @OneToOne(mappedBy = "planeta")
     private Planeta planeta;
 
+    @OneToMany(mappedBy = "especie")
     private List<Personagem> personagems;
+
+    @ManyToMany(mappedBy = "especies")
     private List<Filme> filmes;
 
     public Especie() {

@@ -1,11 +1,14 @@
 package com.pitaya.br.starwars.model;
 
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
 public class Personagem {
 
 
+    @GeneratedValue
     private Integer id;
     private String nome;
     private Integer altura;
@@ -13,11 +16,30 @@ public class Personagem {
     private String sexo;
     private Integer anoDeNascimento;
 
+    @ManyToOne
+    @JoinColumn(name = "especie_id")
     private Especie especie;
+    @ManyToOne
+    @JoinColumn(name = "planeta_id")
     private Planeta planeta;
 
+    @ManyToMany
+    @JoinTable(name = "personagemFilme",
+            joinColumns = @JoinColumn(name = "personagem_id"),
+            inverseJoinColumns = @JoinColumn(name = "filme_id"))
     private List<Filme> filmes;
+
+
+    @ManyToMany
+    @JoinTable(name = "personagemNave",
+            joinColumns = @JoinColumn(name = "personagem_id"),
+            inverseJoinColumns = @JoinColumn(name = "nave_id"))
     private List<Nave> naves;
+
+    @ManyToMany
+    @JoinTable(name = "personagemVeiculo",
+            joinColumns = @JoinColumn(name = "personagem_id"),
+            inverseJoinColumns = @JoinColumn(name = "veiculo_id"))
     private List<Veiculo> veiculos;
 
     public Personagem() {

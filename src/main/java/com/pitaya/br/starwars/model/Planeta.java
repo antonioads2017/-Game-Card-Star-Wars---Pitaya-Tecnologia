@@ -1,15 +1,26 @@
 package com.pitaya.br.starwars.model;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
 public class Planeta {
 
+    @GeneratedValue
     private Integer id;
     private String clima;
     private String nome;
     private String gravidade;
     private Integer populacao;
+
+    @OneToOne
+    @JoinColumn(name = "especie_id")
+    private Especie especie;
+
+    @OneToMany(mappedBy = "planeta")
     private List<Personagem> residentes;
+
+    @ManyToMany(mappedBy = "planetas")
     private List<Filme> filmes;
 
     public Planeta() {
@@ -78,5 +89,13 @@ public class Planeta {
 
     public void setFilmes(List<Filme> filmes) {
         this.filmes = filmes;
+    }
+
+    public Especie getEspecie() {
+        return especie;
+    }
+
+    public void setEspecie(Especie especie) {
+        this.especie = especie;
     }
 }
