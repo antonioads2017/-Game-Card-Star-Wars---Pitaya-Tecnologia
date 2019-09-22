@@ -1,4 +1,4 @@
-package com.pitaya.br.starwars.model;
+package com.pitaya.br.starwars.model.DTOs;
 
 import java.util.List;
 

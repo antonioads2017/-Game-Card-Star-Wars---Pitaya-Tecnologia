@@ -2,8 +2,8 @@ package com.pitaya.br.starwars.service;
 
 import com.pitaya.br.starwars.error.ResourceNotFoundException;
 import com.pitaya.br.starwars.model.*;
+import com.pitaya.br.starwars.model.DTOs.PersonagemDTO;
 import com.pitaya.br.starwars.repository.PersonagemRepository;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,14 +15,10 @@ import java.util.Optional;
 public class PersonagemService {
 
 
-
-
     private static final String PATH = "http://localhost:8090";
 
     @Autowired
     private PersonagemRepository personagemRepository;
-
-    private ModelMapper modelMapper;
 
     public PersonagemDTO getPersonagem(Integer id){
         Personagem personagem = personagemRepository.findById(id).get();
@@ -76,7 +72,6 @@ public class PersonagemService {
         if(personagemRepository.findById(personagem.getId())==null){
             personagemRepository.save(personagem);
         }
-
     }
 
     public void atualizar(Personagem personagem){

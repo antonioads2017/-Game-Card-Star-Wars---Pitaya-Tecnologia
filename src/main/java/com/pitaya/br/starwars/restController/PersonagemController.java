@@ -1,6 +1,7 @@
 package com.pitaya.br.starwars.restController;
 
 import com.pitaya.br.starwars.model.*;
+import com.pitaya.br.starwars.model.DTOs.PersonagemDTO;
 import com.pitaya.br.starwars.service.PersonagemService;
 import com.pitaya.br.starwars.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 
