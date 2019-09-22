@@ -85,7 +85,7 @@ public class FilmeService {
         if(filmeRepository.findById(filme.getId())!=null){
             filmeRepository.save(filme);
         }else{
-            throw new ResourceNotFoundException("FIlme nao encontrado");
+            throw new ResourceNotFoundException("Filme nao encontrado");
         }
     }
 
