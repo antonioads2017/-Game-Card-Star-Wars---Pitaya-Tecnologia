@@ -9,6 +9,7 @@ import java.util.List;
 @Entity
 public class Filme {
 
+    @Id
     @GeneratedValue
     private Integer id;
     private String titulo;
@@ -50,7 +51,7 @@ public class Filme {
     public Filme() {
     }
 
-    public Filme(Integer id, String titulo, Integer episodio, String descricao, String diretor,
+    public Filme(String titulo, Integer episodio, String descricao, String diretor,
                  String producao, LocalDate dataDeLancamento, List<Personagem> personagems,
                  List<Planeta> planetas, List<Nave> naves, List<Veiculo> veiculos, List<Especie> especies) {
         this.id = id;

@@ -8,7 +8,7 @@ import java.util.List;
 public class Personagem {
 
 
-    @GeneratedValue
+    @Id
     private Integer id;
     private String nome;
     private Integer altura;

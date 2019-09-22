@@ -1,13 +1,12 @@
 package com.pitaya.br.starwars.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
 public class Veiculo {
 
+    @Id
     @GeneratedValue
     private Integer id;
     private String nome;

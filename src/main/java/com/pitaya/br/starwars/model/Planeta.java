@@ -6,6 +6,7 @@ import java.util.List;
 @Entity
 public class Planeta {
 
+    @Id
     @GeneratedValue
     private Integer id;
     private String clima;

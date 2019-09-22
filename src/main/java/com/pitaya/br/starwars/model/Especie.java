@@ -6,12 +6,13 @@ import java.util.List;
 @Entity
 public class Especie {
 
+    @Id
     @GeneratedValue
     private Integer id;
     private String nome;
     private String linguagem;
 
-    @OneToOne(mappedBy = "planeta")
+    @OneToOne
     private Planeta planeta;
 
     @OneToMany(mappedBy = "especie")
