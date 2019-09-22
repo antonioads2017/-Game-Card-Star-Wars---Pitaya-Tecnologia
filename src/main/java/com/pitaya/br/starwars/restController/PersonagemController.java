@@ -51,6 +51,23 @@ public class PersonagemController {
         }
     }
 
+    @PutMapping
+    public ResponseEntity<Object> atualizar(@RequestBody Personagem personagem){
+        if(personagem!=null){
+            personagemService.atualizar(personagem);
+            return ResponseEntity.ok(personagem);
+        }else{
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).
+                    body("Erro ao atualizar");
+        }
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> deletar (@PathVariable("id") Integer id){
+        personagemService.excluir(id);
+        return ResponseEntity.ok().build();
+    }
+
+
 
 
 }
