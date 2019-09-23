@@ -19,7 +19,7 @@ import java.util.Optional;
 @Service
 public class VeiculoService {
 
-    private static final String PATH = "http://localhost:8090";
+    private static final String PATH = "https://starwarsgc-api.herokuapp.com";
 
     @Autowired
     private VeiculoRepository veiculoRepository;
