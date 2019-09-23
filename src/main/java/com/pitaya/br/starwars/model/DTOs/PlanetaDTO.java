@@ -10,21 +10,18 @@ public class PlanetaDTO {
     private String gravidade;
     private Integer populacao;
 
-    private String especie;
-
     private List<String> residentes;
     private List<String> filmes;
 
     public PlanetaDTO() {
     }
 
-    public PlanetaDTO(Integer id, String clima, String nome, String gravidade, Integer populacao, String especie, List<String> residentes, List<String> filmes) {
+    public PlanetaDTO(Integer id, String clima, String nome, String gravidade, Integer populacao, List<String> residentes, List<String> filmes) {
         this.id = id;
         this.clima = clima;
         this.nome = nome;
         this.gravidade = gravidade;
         this.populacao = populacao;
-        this.especie = especie;
         this.residentes = residentes;
         this.filmes = filmes;
     }
@@ -67,14 +64,6 @@ public class PlanetaDTO {
 
     public void setPopulacao(Integer populacao) {
         this.populacao = populacao;
-    }
-
-    public String getEspecie() {
-        return especie;
-    }
-
-    public void setEspecie(String especie) {
-        this.especie = especie;
     }
 
     public List<String> getResidentes() {

@@ -27,12 +27,13 @@ public class TestService {
 
     public void exemplo(){
         Planeta planeta = new Planeta("Arid","Tatooine","1 standard",200000,new ArrayList<>(),new ArrayList<>());
-        planetaRepository.save(planeta);
+
         Filme filme = new Filme("The Empire Strikes Back",5,"Filme Teste","Irvin Kershner","Gary Kurtz, Rick McCallum",
                 LocalDate.of(1980,07,15), new ArrayList<>(),new ArrayList<>(),new ArrayList<>(),new ArrayList<>(),new ArrayList<>());
-        filmeRepository.save(filme);
+
         Especie especie = new Especie("Humano","Galactic Basic",planeta,new ArrayList<>(),new ArrayList<>());
-        especieRepository.save(especie);
+        especie.setPlaneta(planeta);
+
         Veiculo veiculo = new Veiculo("Snowspeeder","t-47 airspeeder","airspeeder","Incom corporation",
                 "4.5","10",650,new ArrayList<>(), new ArrayList<>());
         veiculoRepository.save(veiculo);
@@ -45,7 +46,11 @@ public class TestService {
         naves.add(nave);
         List<Veiculo> veiculos = new ArrayList<>();
         veiculos.add(veiculo);
-
+        especie.setFilmes(filmes);
+        planeta.setFilmes(filmes);
+        planetaRepository.save(planeta);
+        especieRepository.save(especie);
+        filmeRepository.save(filme);
         Personagem personage=  new Personagem("Luke Skywalker",172,77,"male",1900,especie,planeta,filmes,naves,veiculos);
 
         personage.setId(1);

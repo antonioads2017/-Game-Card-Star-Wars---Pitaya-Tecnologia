@@ -14,10 +14,6 @@ public class Planeta {
     private String gravidade;
     private Integer populacao;
 
-    @OneToOne
-    @JoinColumn(name = "especie_id")
-    private Especie especie;
-
     @OneToMany(mappedBy = "planeta")
     private List<Personagem> residentes;
 
@@ -92,11 +88,4 @@ public class Planeta {
         this.filmes = filmes;
     }
 
-    public Especie getEspecie() {
-        return especie;
-    }
-
-    public void setEspecie(Especie especie) {
-        this.especie = especie;
-    }
 }
